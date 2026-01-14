@@ -1,6 +1,11 @@
-import React from 'react';
+'use client';
+
+import { useScrollAnimation, useStaggerAnimation } from '@/hooks/useScrollAnimation';
 
 export default function About() {
+  const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation();
+  const { ref: gridRef, isVisible: gridVisible, getStaggerDelay } = useStaggerAnimation(4, { staggerDelay: 150 });
+
   const highlights = [
     {
       icon: (
@@ -41,14 +46,17 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="py-20 md:py-32 px-4 bg-neutral">
+    <section id="about" className="py-16 md:py-24 lg:py-32 px-4 bg-neutral overflow-hidden">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+        <div
+          ref={headerRef}
+          className={`text-center max-w-3xl mx-auto mb-12 md:mb-16 fade-in-up ${headerVisible ? 'visible' : ''}`}
+        >
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4 md:mb-6">
             Về Vả Riverside Retreat
           </h2>
-          <p className="text-lg md:text-xl text-foreground/70 leading-relaxed">
+          <p className="text-base md:text-lg lg:text-xl text-foreground/70 leading-relaxed px-2">
             Nằm bên dòng sông Hương thơ mộng với view núi Kim Phụng, Vả Riverside Retreat
             là không gian lý tưởng để thư giãn và khám phá văn hóa Huế. Với 9 phòng nghỉ
             đa dạng, hồ bơi ngoài trời và các hoạt động SUP trên sông, chúng tôi mang đến
@@ -57,19 +65,24 @@ export default function About() {
         </div>
 
         {/* Highlights Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div
+          ref={gridRef}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8"
+        >
           {highlights.map((highlight, index) => (
             <div
               key={index}
-              className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300"
+              className={`stagger-item bg-white rounded-2xl p-6 md:p-8 shadow-lg card-hover
+                ${gridVisible ? 'visible' : ''}`}
+              style={getStaggerDelay(index)}
             >
-              <div className="text-primary mb-4">
+              <div className="text-primary mb-4 icon-hover inline-block">
                 {highlight.icon}
               </div>
-              <h3 className="text-xl font-semibold text-foreground mb-3">
+              <h3 className="text-lg md:text-xl font-semibold text-foreground mb-2 md:mb-3">
                 {highlight.title}
               </h3>
-              <p className="text-foreground/60 leading-relaxed">
+              <p className="text-sm md:text-base text-foreground/60 leading-relaxed">
                 {highlight.description}
               </p>
             </div>

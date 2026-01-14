@@ -1,19 +1,62 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMenuAnimating, setIsMenuAnimating] = useState(false);
 
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setIsScrolled(window.scrollY > 50);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMobileMenuOpen]);
+
+  const toggleMobileMenu = useCallback(() => {
+    if (isMobileMenuOpen) {
+      setIsMenuAnimating(true);
+      setTimeout(() => {
+        setIsMobileMenuOpen(false);
+        setIsMenuAnimating(false);
+      }, 250);
+    } else {
+      setIsMobileMenuOpen(true);
+    }
+  }, [isMobileMenuOpen]);
+
+  const closeMobileMenu = useCallback(() => {
+    if (isMobileMenuOpen) {
+      setIsMenuAnimating(true);
+      setTimeout(() => {
+        setIsMobileMenuOpen(false);
+        setIsMenuAnimating(false);
+      }, 250);
+    }
+  }, [isMobileMenuOpen]);
 
   const navLinks = [
     { name: 'Trang Chủ', href: '#hero' },
@@ -26,89 +69,167 @@ export default function Navbar() {
   ];
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-white/95 backdrop-blur-md shadow-lg'
-          : 'bg-transparent'
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="flex items-center justify-between h-20">
-          {/* Logo */}
-          <a
-            href="#hero"
-            className={`text-2xl font-bold transition-colors duration-300 ${
-              isScrolled ? 'text-primary' : 'text-white'
-            }`}
-          >
-            Vả Riverside Retreat
-          </a>
-
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-8">
-            {navLinks.map((link, index) => (
-              <a
-                key={index}
-                href={link.href}
-                className={`font-medium transition-colors duration-300 hover:text-primary ${
-                  isScrolled ? 'text-foreground' : 'text-white'
-                }`}
-              >
-                {link.name}
-              </a>
-            ))}
+    <>
+      <nav
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+          isScrolled
+            ? 'bg-white/95 backdrop-blur-md shadow-lg'
+            : 'bg-gradient-to-b from-black/30 to-transparent'
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="flex items-center justify-between h-16 md:h-20">
+            {/* Logo */}
             <a
-              href="#booking-platforms"
-              className="bg-primary hover:bg-primary-dark text-white font-semibold px-6 py-3 rounded-full transition-all duration-300 hover:scale-105 shadow-lg"
+              href="#hero"
+              className="flex items-center gap-2 transition-all duration-300"
             >
-              Liên Hệ
+              <img
+                src="/images/Logo.jpg"
+                alt="Vả Riverside Retreat"
+                className="w-10 h-10 md:w-12 md:h-12 rounded-full object-cover shadow-md"
+              />
+              <span className={`text-lg md:text-xl font-bold hidden sm:block ${
+                isScrolled ? 'text-primary' : 'text-white drop-shadow-md'
+              }`}>
+                Vả Riverside
+              </span>
             </a>
-          </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className={`lg:hidden p-2 rounded-lg transition-colors ${
-              isScrolled ? 'text-foreground' : 'text-white'
-            }`}
-            aria-label="Toggle menu"
-          >
-            {isMobileMenuOpen ? (
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            ) : (
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            )}
-          </button>
+            {/* Desktop Navigation */}
+            <div className="hidden lg:flex items-center gap-6 xl:gap-8">
+              {navLinks.map((link, index) => (
+                <a
+                  key={index}
+                  href={link.href}
+                  className={`font-medium text-sm xl:text-base transition-all duration-300 hover:text-primary relative
+                    after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary
+                    after:transition-all after:duration-300 hover:after:w-full ${
+                    isScrolled ? 'text-foreground' : 'text-white'
+                  }`}
+                >
+                  {link.name}
+                </a>
+              ))}
+              <a
+                href="#booking-platforms"
+                className="bg-primary hover:bg-primary-dark text-white font-semibold px-5 py-2.5 rounded-full
+                         transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-primary/30
+                         active:scale-95"
+              >
+                Liên Hệ
+              </a>
+            </div>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={toggleMobileMenu}
+              className={`lg:hidden p-2 rounded-lg transition-all duration-300 touch-manipulation
+                ${isScrolled ? 'text-foreground' : 'text-white'}
+                ${isMobileMenuOpen ? 'bg-neutral' : ''}`}
+              aria-label="Toggle menu"
+              aria-expanded={isMobileMenuOpen}
+            >
+              <div className="w-6 h-6 relative">
+                <span
+                  className={`absolute left-0 block w-6 h-0.5 bg-current transform transition-all duration-300 ease-out
+                    ${isMobileMenuOpen ? 'rotate-45 top-3' : 'top-1'}`}
+                />
+                <span
+                  className={`absolute left-0 top-3 block w-6 h-0.5 bg-current transition-all duration-200
+                    ${isMobileMenuOpen ? 'opacity-0 scale-x-0' : 'opacity-100'}`}
+                />
+                <span
+                  className={`absolute left-0 block w-6 h-0.5 bg-current transform transition-all duration-300 ease-out
+                    ${isMobileMenuOpen ? '-rotate-45 top-3' : 'top-5'}`}
+                />
+              </div>
+            </button>
+          </div>
         </div>
 
         {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-          <div className="lg:hidden bg-white border-t border-gray-200 py-4 space-y-2">
-            {navLinks.map((link, index) => (
-              <a
-                key={index}
-                href={link.href}
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="block px-4 py-3 text-foreground hover:bg-neutral hover:text-primary rounded-lg transition-all"
-              >
-                {link.name}
-              </a>
-            ))}
-            <a
-              href="#booking-platforms"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="block mx-4 mt-2 bg-primary hover:bg-primary-dark text-white text-center font-semibold px-6 py-3 rounded-full transition-all"
-            >
-              Liên Hệ
-            </a>
+        {(isMobileMenuOpen || isMenuAnimating) && (
+          <div
+            className={`lg:hidden fixed inset-x-0 top-16 md:top-20 bottom-0 bg-white/98 backdrop-blur-lg
+              ${isMenuAnimating && !isMobileMenuOpen ? 'mobile-menu-exit' : 'mobile-menu-enter'}`}
+          >
+            <div className="h-full overflow-y-auto overscroll-contain px-4 py-6">
+              <div className="space-y-1">
+                {navLinks.map((link, index) => (
+                  <a
+                    key={index}
+                    href={link.href}
+                    onClick={closeMobileMenu}
+                    className="block px-4 py-4 text-lg text-foreground hover:bg-neutral hover:text-primary
+                             rounded-xl transition-all duration-200 active:scale-98
+                             border-b border-neutral/50 last:border-0"
+                    style={{
+                      animationDelay: `${index * 50}ms`,
+                      opacity: isMenuAnimating && !isMobileMenuOpen ? 0 : 1,
+                      transform: isMenuAnimating && !isMobileMenuOpen ? 'translateX(-10px)' : 'translateX(0)',
+                      transition: `opacity 0.2s ease ${index * 50}ms, transform 0.2s ease ${index * 50}ms`
+                    }}
+                  >
+                    {link.name}
+                  </a>
+                ))}
+              </div>
+
+              {/* Mobile CTA */}
+              <div className="mt-6 px-4">
+                <a
+                  href="#booking-platforms"
+                  onClick={closeMobileMenu}
+                  className="block w-full bg-primary hover:bg-primary-dark text-white text-center
+                           font-semibold py-4 rounded-full transition-all duration-300
+                           shadow-lg active:scale-95"
+                >
+                  Liên Hệ Ngay
+                </a>
+              </div>
+
+              {/* Quick Contact Info */}
+              <div className="mt-8 px-4 pt-6 border-t border-neutral">
+                <p className="text-sm text-foreground/60 mb-3">Liên hệ nhanh:</p>
+                <div className="space-y-3">
+                  <a
+                    href="tel:+84794945654"
+                    className="flex items-center gap-3 text-foreground hover:text-primary transition-colors"
+                  >
+                    <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
+                      <svg className="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                      </svg>
+                    </div>
+                    <span className="font-medium">079 494 5654</span>
+                  </a>
+                  <a
+                    href="tel:+84938598718"
+                    className="flex items-center gap-3 text-foreground hover:text-primary transition-colors"
+                  >
+                    <div className="w-10 h-10 bg-secondary/10 rounded-full flex items-center justify-center">
+                      <svg className="w-5 h-5 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                      </svg>
+                    </div>
+                    <span className="font-medium">093 859 8718</span>
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         )}
-      </div>
-    </nav>
+      </nav>
+
+      {/* Overlay for mobile menu */}
+      {isMobileMenuOpen && (
+        <div
+          className="fixed inset-0 bg-black/20 z-40 lg:hidden"
+          onClick={closeMobileMenu}
+          aria-hidden="true"
+        />
+      )}
+    </>
   );
 }

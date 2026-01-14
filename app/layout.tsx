@@ -13,20 +13,28 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://variversideretreat.com"),
   title: "Vả Riverside Retreat Huế - Homestay Bên Sông Hương",
   description: "Vả Riverside Retreat - Homestay cao cấp tại Huế với view núi Kim Phụng và sông Hương. Hồ bơi ngoài trời, hoạt động SUP, gần lăng Khải Định. Đánh giá 9.8/10. Giá từ 250,000đ.",
   keywords: ["Vả Riverside Retreat", "homestay Huế", "homestay sông Hương", "du lịch Huế", "lăng Khải Định", "SUP Huế", "homestay view núi", "Hương Thủy"],
   authors: [{ name: "Vả Riverside Retreat" }],
+  icons: {
+    icon: "/images/Logo.jpg",
+    shortcut: "/images/Logo.jpg",
+    apple: "/images/Logo.jpg",
+  },
   openGraph: {
     title: "Vả Riverside Retreat Huế - Homestay Bên Sông Hương",
     description: "Homestay cao cấp tại Huế với view núi Kim Phụng và sông Hương. Hồ bơi ngoài trời, hoạt động SUP, gần lăng Khải Định. Đánh giá 9.8/10.",
     type: "website",
     locale: "vi_VN",
+    images: ["/images/Logo.jpg"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Vả Riverside Retreat Huế - Homestay Bên Sông Hương",
     description: "Homestay cao cấp tại Huế với view núi Kim Phụng và sông Hương tuyệt đẹp",
+    images: ["/images/Logo.jpg"],
   },
 };
 
