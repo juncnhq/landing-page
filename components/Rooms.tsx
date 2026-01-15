@@ -1,53 +1,43 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import { useScrollAnimation, useStaggerAnimation } from '@/hooks/useScrollAnimation';
 
 export default function Rooms() {
+  const t = useTranslations('rooms');
   const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation();
   const { ref: gridRef, isVisible: gridVisible, getStaggerDelay } = useStaggerAnimation(6, { staggerDelay: 100 });
 
   const rooms = [
     {
       id: 1,
-      name: 'Phòng Dorm',
+      key: 'dorm',
       image: '/images/dorm.jpg',
-      description: 'Phòng ký túc xá giá rẻ cho du khách bụi',
-      features: ['Nhiều giường', 'Từ 250,000đ', 'Phù hợp nhóm']
     },
     {
       id: 2,
-      name: 'Phòng Twin',
+      key: 'twin',
       image: '/images/Deluxetwin.jpg',
-      description: 'Phòng đôi với 2 giường đơn tiện nghi',
-      features: ['2 giường đơn', 'Điều hòa', 'View sông']
     },
     {
       id: 3,
-      name: 'Phòng Deluxe',
+      key: 'deluxe',
       image: '/images/Deluxedouble.jpg',
-      description: 'Phòng cao cấp với đầy đủ tiện nghi',
-      features: ['Giường King', 'Ban công riêng', 'View núi Kim Phụng']
     },
     {
       id: 4,
-      name: 'Phòng Family',
+      key: 'family',
       image: '/images/Family.jpg',
-      description: 'Phòng gia đình rộng rãi cho 4-6 người',
-      features: ['4-6 người', 'Nhiều giường', 'Không gian lớn']
     },
     {
       id: 5,
-      name: 'Thuê Nguyên Căn',
+      key: 'villa',
       image: 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?q=80&w=2070',
-      description: 'Villa 9 phòng cho nhóm lớn hoặc sự kiện',
-      features: ['Tối đa 32 người', '9 phòng ngủ', 'Hồ bơi riêng']
     },
     {
       id: 6,
-      name: 'View Sông Hương',
+      key: 'riverView',
       image: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=2070',
-      description: 'Phòng với view sông Hương tuyệt đẹp',
-      features: ['View sông', 'Ban công', 'Yên tĩnh']
     }
   ];
 
@@ -60,11 +50,10 @@ export default function Rooms() {
           className={`text-center max-w-3xl mx-auto mb-12 md:mb-16 fade-in-up ${headerVisible ? 'visible' : ''}`}
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4 md:mb-6">
-            Phòng & Không Gian
+            {t('title')}
           </h2>
           <p className="text-base md:text-lg lg:text-xl text-foreground/70 px-2">
-            Khám phá các loại phòng được thiết kế tinh tế,
-            mang đến sự thoải mái tối đa cho kỳ nghỉ của bạn
+            {t('description')}
           </p>
         </div>
 
@@ -84,7 +73,7 @@ export default function Rooms() {
               <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden">
                 <img
                   src={room.image}
-                  alt={room.name}
+                  alt={t(`types.${room.key}.name`)}
                   className="w-full h-full object-cover img-zoom"
                   loading="lazy"
                 />
@@ -96,7 +85,7 @@ export default function Rooms() {
                               translate-y-4 group-hover:translate-y-0 transition-all duration-300">
                   <span className="inline-block bg-white/90 backdrop-blur-sm text-foreground text-sm
                                  px-3 py-1.5 rounded-full font-medium">
-                    Xem chi tiết
+                    {t('quickView')}
                   </span>
                 </div>
               </div>
@@ -104,15 +93,15 @@ export default function Rooms() {
               {/* Content */}
               <div className="p-5 md:p-6">
                 <h3 className="text-xl md:text-2xl font-semibold text-foreground mb-2">
-                  {room.name}
+                  {t(`types.${room.key}.name`)}
                 </h3>
                 <p className="text-sm md:text-base text-foreground/60 mb-4">
-                  {room.description}
+                  {t(`types.${room.key}.description`)}
                 </p>
 
                 {/* Features */}
                 <div className="flex flex-wrap gap-2 mb-4">
-                  {room.features.map((feature, idx) => (
+                  {(t.raw(`types.${room.key}.features`) as string[]).map((feature: string, idx: number) => (
                     <span
                       key={idx}
                       className="text-xs md:text-sm bg-neutral text-foreground px-3 py-1 rounded-full
@@ -127,7 +116,7 @@ export default function Rooms() {
                 <button className="w-full bg-primary hover:bg-primary-dark text-white font-semibold
                                  py-3 rounded-lg transition-all duration-300 btn-hover
                                  active:scale-95 touch-manipulation">
-                  Xem Chi Tiết
+                  {t('viewDetails')}
                 </button>
               </div>
             </div>

@@ -1,8 +1,11 @@
 'use client';
 
 import React, { useState, useEffect, useCallback } from 'react';
+import { useTranslations } from 'next-intl';
+import LanguageSwitcher from './LanguageSwitcher';
 
 export default function Navbar() {
+  const t = useTranslations('nav');
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMenuAnimating, setIsMenuAnimating] = useState(false);
@@ -59,13 +62,13 @@ export default function Navbar() {
   }, [isMobileMenuOpen]);
 
   const navLinks = [
-    { name: 'Trang Chủ', href: '#hero' },
-    { name: 'Về Chúng Tôi', href: '#about' },
-    { name: 'Phòng', href: '#rooms' },
-    { name: 'Tiện Nghi', href: '#amenities' },
-    { name: 'Đánh Giá', href: '#testimonials' },
-    { name: 'Vị Trí', href: '#location' },
-    { name: 'Đặt Phòng', href: '#booking-platforms' }
+    { name: t('home'), href: '#hero' },
+    { name: t('about'), href: '#about' },
+    { name: t('rooms'), href: '#rooms' },
+    { name: t('amenities'), href: '#amenities' },
+    { name: t('testimonials'), href: '#testimonials' },
+    { name: t('location'), href: '#location' },
+    { name: t('booking'), href: '#booking-platforms' }
   ];
 
   return (
@@ -111,40 +114,44 @@ export default function Navbar() {
                   {link.name}
                 </a>
               ))}
+              <LanguageSwitcher isScrolled={isScrolled} />
               <a
                 href="#booking-platforms"
                 className="bg-primary hover:bg-primary-dark text-white font-semibold px-5 py-2.5 rounded-full
                          transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-primary/30
                          active:scale-95"
               >
-                Liên Hệ
+                {t('contact')}
               </a>
             </div>
 
             {/* Mobile Menu Button */}
-            <button
-              onClick={toggleMobileMenu}
-              className={`lg:hidden p-2 rounded-lg transition-all duration-300 touch-manipulation
-                ${isScrolled ? 'text-foreground' : 'text-white'}
-                ${isMobileMenuOpen ? 'bg-neutral' : ''}`}
-              aria-label="Toggle menu"
-              aria-expanded={isMobileMenuOpen}
-            >
-              <div className="w-6 h-6 relative">
-                <span
-                  className={`absolute left-0 block w-6 h-0.5 bg-current transform transition-all duration-300 ease-out
-                    ${isMobileMenuOpen ? 'rotate-45 top-3' : 'top-1'}`}
-                />
-                <span
-                  className={`absolute left-0 top-3 block w-6 h-0.5 bg-current transition-all duration-200
-                    ${isMobileMenuOpen ? 'opacity-0 scale-x-0' : 'opacity-100'}`}
-                />
-                <span
-                  className={`absolute left-0 block w-6 h-0.5 bg-current transform transition-all duration-300 ease-out
-                    ${isMobileMenuOpen ? '-rotate-45 top-3' : 'top-5'}`}
-                />
-              </div>
-            </button>
+            <div className="lg:hidden flex items-center gap-2">
+              <LanguageSwitcher isScrolled={isScrolled} />
+              <button
+                onClick={toggleMobileMenu}
+                className={`p-2 rounded-lg transition-all duration-300 touch-manipulation
+                  ${isScrolled ? 'text-foreground' : 'text-white'}
+                  ${isMobileMenuOpen ? 'bg-neutral' : ''}`}
+                aria-label="Toggle menu"
+                aria-expanded={isMobileMenuOpen}
+              >
+                <div className="w-6 h-6 relative">
+                  <span
+                    className={`absolute left-0 block w-6 h-0.5 bg-current transform transition-all duration-300 ease-out
+                      ${isMobileMenuOpen ? 'rotate-45 top-3' : 'top-1'}`}
+                  />
+                  <span
+                    className={`absolute left-0 top-3 block w-6 h-0.5 bg-current transition-all duration-200
+                      ${isMobileMenuOpen ? 'opacity-0 scale-x-0' : 'opacity-100'}`}
+                  />
+                  <span
+                    className={`absolute left-0 block w-6 h-0.5 bg-current transform transition-all duration-300 ease-out
+                      ${isMobileMenuOpen ? '-rotate-45 top-3' : 'top-5'}`}
+                  />
+                </div>
+              </button>
+            </div>
           </div>
         </div>
 
@@ -185,13 +192,13 @@ export default function Navbar() {
                            font-semibold py-4 rounded-full transition-all duration-300
                            shadow-lg active:scale-95"
                 >
-                  Liên Hệ Ngay
+                  {t('contactNow')}
                 </a>
               </div>
 
               {/* Quick Contact Info */}
               <div className="mt-8 px-4 pt-6 border-t border-neutral">
-                <p className="text-sm text-foreground/60 mb-3">Liên hệ nhanh:</p>
+                <p className="text-sm text-foreground/60 mb-3">{t('quickContact')}</p>
                 <div className="space-y-3">
                   <a
                     href="tel:+84794945654"

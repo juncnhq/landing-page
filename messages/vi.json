@@ -1,0 +1,212 @@
+{
+  "metadata": {
+    "title": "Vả Riverside Retreat Huế - Homestay Bên Sông Hương",
+    "description": "Vả Riverside Retreat - Homestay cao cấp tại Huế với view núi Kim Phụng và sông Hương. Hồ bơi ngoài trời, hoạt động SUP, gần lăng Khải Định. Đánh giá 9.8/10. Giá từ 250,000đ."
+  },
+  "nav": {
+    "home": "Trang Chủ",
+    "about": "Về Chúng Tôi",
+    "rooms": "Phòng",
+    "amenities": "Tiện Nghi",
+    "testimonials": "Đánh Giá",
+    "location": "Vị Trí",
+    "booking": "Đặt Phòng",
+    "contact": "Liên Hệ",
+    "contactNow": "Liên Hệ Ngay",
+    "quickContact": "Liên hệ nhanh:"
+  },
+  "hero": {
+    "title": "Vả Riverside Retreat",
+    "subtitle": "Bên Dòng Sông Hương Thơ Mộng",
+    "description": "View núi Kim Phụng tuyệt đẹp, hồ bơi ngoài trời, và trải nghiệm SUP trên sông Hương",
+    "cta": "Đặt Phòng Ngay",
+    "badge1": "9.8/10 Booking",
+    "badge2": "50m Lăng Khải Định",
+    "scroll": "Khám phá thêm"
+  },
+  "about": {
+    "title": "Về Vả Riverside Retreat",
+    "description": "Nằm bên dòng sông Hương thơ mộng với view núi Kim Phụng, Vả Riverside Retreat là không gian lý tưởng để thư giãn và khám phá văn hóa Huế. Với 9 phòng nghỉ đa dạng, hồ bơi ngoài trời và các hoạt động SUP trên sông, chúng tôi mang đến trải nghiệm nghỉ dưỡng đáng nhớ cho mọi du khách.",
+    "highlights": {
+      "pool": {
+        "title": "Hồ Bơi Ngoài Trời",
+        "description": "Hồ bơi với view núi Kim Phụng và sông Hương tuyệt đẹp, không gian thư giãn hoàn hảo"
+      },
+      "sup": {
+        "title": "Hoạt Động SUP",
+        "description": "Trải nghiệm chèo ván đứng SUP trên dòng sông Hương thơ mộng"
+      },
+      "heritage": {
+        "title": "Gần Di Tích Lịch Sử",
+        "description": "Cách lăng Khải Định chỉ 50m, dễ dàng khám phá các di sản văn hóa Huế"
+      },
+      "rating": {
+        "title": "Đánh Giá 9.8/10",
+        "description": "Được khách hàng đánh giá cao với điểm số xuất sắc trên Booking.com"
+      }
+    }
+  },
+  "rooms": {
+    "title": "Phòng & Không Gian",
+    "description": "Khám phá các loại phòng được thiết kế tinh tế, mang đến sự thoải mái tối đa cho kỳ nghỉ của bạn",
+    "viewDetails": "Xem Chi Tiết",
+    "quickView": "Xem chi tiết",
+    "types": {
+      "dorm": {
+        "name": "Phòng Dorm",
+        "description": "Phòng ký túc xá giá rẻ cho du khách bụi",
+        "features": ["Nhiều giường", "Từ 250,000đ", "Phù hợp nhóm"]
+      },
+      "twin": {
+        "name": "Phòng Twin",
+        "description": "Phòng đôi với 2 giường đơn tiện nghi",
+        "features": ["2 giường đơn", "Điều hòa", "View sông"]
+      },
+      "deluxe": {
+        "name": "Phòng Deluxe",
+        "description": "Phòng cao cấp với đầy đủ tiện nghi",
+        "features": ["Giường King", "Ban công riêng", "View núi Kim Phụng"]
+      },
+      "family": {
+        "name": "Phòng Family",
+        "description": "Phòng gia đình rộng rãi cho 4-6 người",
+        "features": ["4-6 người", "Nhiều giường", "Không gian lớn"]
+      },
+      "villa": {
+        "name": "Thuê Nguyên Căn",
+        "description": "Villa 9 phòng cho nhóm lớn hoặc sự kiện",
+        "features": ["Tối đa 32 người", "9 phòng ngủ", "Hồ bơi riêng"]
+      },
+      "riverView": {
+        "name": "View Sông Hương",
+        "description": "Phòng với view sông Hương tuyệt đẹp",
+        "features": ["View sông", "Ban công", "Yên tĩnh"]
+      }
+    }
+  },
+  "amenities": {
+    "title": "Tiện Nghi & Dịch Vụ",
+    "description": "Vả Riverside Retreat cung cấp đầy đủ tiện nghi miễn phí và các dịch vụ chất lượng cao cho kỳ nghỉ tuyệt vời",
+    "items": {
+      "wifi": { "name": "WiFi Tốc Độ Cao", "description": "Miễn phí toàn bộ khu vực" },
+      "kitchen": { "name": "Bếp Đầy Đủ", "description": "Tự nấu ăn tiện lợi" },
+      "ac": { "name": "Điều Hòa", "description": "Mọi phòng đều có" },
+      "parking": { "name": "Bãi Đỗ Xe", "description": "Rộng rãi, an toàn" },
+      "bbq": { "name": "Khu BBQ", "description": "Tiệc ngoài trời thú vị" },
+      "housekeeping": { "name": "Dịch Vụ Dọn Phòng", "description": "Hàng ngày miễn phí" },
+      "reception": { "name": "Lễ Tân 24/7", "description": "Hỗ trợ mọi lúc" },
+      "photo": { "name": "Khu Vực Chụp Ảnh", "description": "Góc view đẹp check-in" },
+      "breakfast": { "name": "Bữa Sáng", "description": "Đặc sản địa phương" },
+      "library": { "name": "Thư Viện Sách", "description": "Góc đọc yên tĩnh" },
+      "security": { "name": "An Toàn", "description": "Camera giám sát 24/7" },
+      "clean": { "name": "Vệ Sinh Sạch Sẽ", "description": "Tiêu chuẩn 5 sao" }
+    }
+  },
+  "testimonials": {
+    "title": "Khách Hàng Nói Gì Về Chúng Tôi",
+    "description": "Niềm vui của khách hàng là động lực để chúng tôi không ngừng cải thiện dịch vụ",
+    "stats": {
+      "rating": { "number": "9.8/10", "label": "Đánh Giá Booking.com" },
+      "rooms": { "number": "9 Phòng", "label": "Tối đa 32 khách" },
+      "distance": { "number": "50m", "label": "Đến Lăng Khải Định" },
+      "support": { "number": "24/7", "label": "Hỗ Trợ Khách Hàng" }
+    },
+    "reviews": {
+      "review1": {
+        "name": "Minh Anh",
+        "location": "Hà Nội",
+        "date": "Tháng 12, 2024",
+        "comment": "View sông Hương và núi Kim Phụng thật tuyệt! Hồ bơi rất đẹp, không gian yên tĩnh. Gần lăng Khải Định nên rất tiện để tham quan. Chủ nhà thân thiện, nhiệt tình."
+      },
+      "review2": {
+        "name": "Tuấn Kiệt",
+        "location": "TP. Hồ Chí Minh",
+        "date": "Tháng 11, 2024",
+        "comment": "Trải nghiệm SUP trên sông Hương rất thú vị! Phòng sạch sẽ, đầy đủ tiện nghi. Vị trí gần các lăng tẩm nên thuận tiện cho việc tham quan Huế. Giá cả hợp lý."
+      },
+      "review3": {
+        "name": "Thu Hà",
+        "location": "Đà Nẵng",
+        "date": "Tháng 10, 2024",
+        "comment": "Homestay tuyệt vời cho những ai muốn trốn khỏi sự ồn ào của thành phố. View đẹp, không khí trong lành. Thiết kế đẹp và thoải mái. Highly recommended!"
+      }
+    }
+  },
+  "location": {
+    "title": "Vị Trí Thuận Tiện",
+    "description": "Homestay của chúng tôi tọa lạc tại vị trí đắc địa, vừa gần gũi với thiên nhiên, vừa dễ dàng tiếp cận các tiện ích và điểm tham quan trong khu vực.",
+    "address": "Địa chỉ",
+    "addressLine1": "Bến Than, phường Thủy Xuân",
+    "addressLine2": "Thành phố Huế, Thừa Thiên Huế",
+    "nearbyPlaces": "Địa điểm lân cận",
+    "viewOnMap": "Xem Trên Google Maps",
+    "findUs": "Tìm Chúng Tôi Tại Đây",
+    "mapDescription": "Nestled in the heart of nature, easy to reach",
+    "places": {
+      "khaiDinh": { "name": "Lăng Khải Định", "distance": "50m" },
+      "tuDuc": { "name": "Lăng Tự Đức", "distance": "2.8 km" },
+      "truongTien": { "name": "Cầu Trường Tiền", "distance": "7.6 km" },
+      "dongBa": { "name": "Chợ Đông Ba", "distance": "8.1 km" }
+    }
+  },
+  "bookingPlatforms": {
+    "title": "Đặt Phòng & Kết Nối",
+    "description": "Đặt phòng dễ dàng qua các nền tảng uy tín hoặc theo dõi chúng tôi trên mạng xã hội để cập nhật thông tin mới nhất",
+    "directContact": "Liên Hệ Trực Tiếp",
+    "directContactDesc": "Gọi ngay để được tư vấn và hỗ trợ đặt phòng tốt nhất",
+    "platforms": {
+      "booking": { "description": "Đặt phòng trực tuyến, thanh toán linh hoạt", "reviews": "13 đánh giá" },
+      "agoda": { "description": "Giá tốt nhất, ưu đãi độc quyền", "reviews": "Guarantee" },
+      "facebook": { "description": "Theo dõi và nhận ưu đãi mới nhất", "reviews": "Latest Updates" },
+      "instagram": { "description": "Xem hình ảnh và video đẹp", "reviews": "Photos & Videos" },
+      "tiktok": { "description": "Video ngắn về trải nghiệm", "reviews": "Short Clips" }
+    }
+  },
+  "booking": {
+    "title": "Liên Hệ Đặt Phòng",
+    "description": "Liên hệ trực tiếp với chúng tôi qua điện thoại, Zalo hoặc email để được tư vấn và hỗ trợ đặt phòng tốt nhất",
+    "phone": "Điện thoại / Zalo",
+    "email": "Email",
+    "workingHours": "Giờ Làm Việc",
+    "workingHoursValue": "24/7 - Luôn sẵn sàng phục vụ",
+    "addressTitle": "Địa Chỉ",
+    "addressValue": "Bến Than, Thủy Xuân\nThành phố Huế",
+    "pricePolicy": "Thông Tin Giá & Chính Sách",
+    "features": {
+      "price": "Giá từ 250,000đ/đêm (Dorm)",
+      "checkInOut": "Check-in: 14:00 | Check-out: 12:00",
+      "freeWifi": "Miễn phí WiFi & Bãi đỗ xe",
+      "freeSup": "Hoạt động SUP miễn phí",
+      "pool": "Hồ bơi ngoài trời view sông",
+      "nearKhaiDinh": "Cách lăng Khải Định chỉ 50m"
+    }
+  },
+  "footer": {
+    "brandDescription": "Nằm bên sông Hương thơ mộng với view núi Kim Phụng, mang đến trải nghiệm nghỉ dưỡng đáng nhớ tại Huế.",
+    "quickLinks": "Liên Kết Nhanh",
+    "contactInfo": "Thông Tin Liên Hệ",
+    "newsletter": "Nhận Ưu Đãi",
+    "newsletterDesc": "Đăng ký để nhận các ưu đãi và tin tức mới nhất",
+    "emailPlaceholder": "Email của bạn",
+    "subscribe": "Đăng Ký",
+    "privacy": "Chính sách bảo mật",
+    "terms": "Điều khoản dịch vụ",
+    "cancellation": "Chính sách hủy phòng",
+    "allRights": "All rights reserved.",
+    "links": {
+      "home": "Trang chủ",
+      "about": "Về chúng tôi",
+      "rooms": "Phòng",
+      "booking": "Đặt phòng",
+      "contact": "Liên hệ"
+    },
+    "contactLabels": {
+      "phone": "Điện thoại / Zalo",
+      "email": "Email",
+      "address": "Địa chỉ"
+    }
+  },
+  "languageSwitcher": {
+    "label": "Ngôn ngữ"
+  }
+}

@@ -1,0 +1,212 @@
+{
+  "metadata": {
+    "title": "Va Riverside Retreat Hue - Riverside Homestay",
+    "description": "Va Riverside Retreat - Premium homestay in Hue with Kim Phung mountain and Perfume River views. Outdoor pool, SUP activities, near Khai Dinh Tomb. Rated 9.8/10. From 250,000 VND."
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "rooms": "Rooms",
+    "amenities": "Amenities",
+    "testimonials": "Reviews",
+    "location": "Location",
+    "booking": "Book Now",
+    "contact": "Contact",
+    "contactNow": "Contact Now",
+    "quickContact": "Quick contact:"
+  },
+  "hero": {
+    "title": "Va Riverside Retreat",
+    "subtitle": "By The Poetic Perfume River",
+    "description": "Stunning Kim Phung mountain views, outdoor pool, and SUP experiences on the Perfume River",
+    "cta": "Book Now",
+    "badge1": "9.8/10 Booking",
+    "badge2": "50m to Khai Dinh Tomb",
+    "scroll": "Discover more"
+  },
+  "about": {
+    "title": "About Va Riverside Retreat",
+    "description": "Nestled by the poetic Perfume River with views of Kim Phung mountain, Va Riverside Retreat is the ideal space to relax and explore Hue's culture. With 9 diverse rooms, an outdoor pool, and SUP activities on the river, we deliver memorable vacation experiences for all travelers.",
+    "highlights": {
+      "pool": {
+        "title": "Outdoor Pool",
+        "description": "Pool with stunning views of Kim Phung mountain and Perfume River, perfect relaxation space"
+      },
+      "sup": {
+        "title": "SUP Activities",
+        "description": "Experience stand-up paddleboarding on the poetic Perfume River"
+      },
+      "heritage": {
+        "title": "Near Historical Sites",
+        "description": "Just 50m from Khai Dinh Tomb, easily explore Hue's cultural heritage"
+      },
+      "rating": {
+        "title": "Rated 9.8/10",
+        "description": "Highly rated by guests with excellent scores on Booking.com"
+      }
+    }
+  },
+  "rooms": {
+    "title": "Rooms & Spaces",
+    "description": "Discover elegantly designed rooms that provide maximum comfort for your vacation",
+    "viewDetails": "View Details",
+    "quickView": "View details",
+    "types": {
+      "dorm": {
+        "name": "Dorm Room",
+        "description": "Budget-friendly dormitory for backpackers",
+        "features": ["Multiple beds", "From 250,000 VND", "Group friendly"]
+      },
+      "twin": {
+        "name": "Twin Room",
+        "description": "Double room with 2 single beds and amenities",
+        "features": ["2 single beds", "Air conditioning", "River view"]
+      },
+      "deluxe": {
+        "name": "Deluxe Room",
+        "description": "Premium room with full amenities",
+        "features": ["King bed", "Private balcony", "Kim Phung mountain view"]
+      },
+      "family": {
+        "name": "Family Room",
+        "description": "Spacious family room for 4-6 guests",
+        "features": ["4-6 guests", "Multiple beds", "Large space"]
+      },
+      "villa": {
+        "name": "Entire Villa",
+        "description": "9-room villa for large groups or events",
+        "features": ["Up to 32 guests", "9 bedrooms", "Private pool"]
+      },
+      "riverView": {
+        "name": "Perfume River View",
+        "description": "Room with stunning Perfume River views",
+        "features": ["River view", "Balcony", "Peaceful"]
+      }
+    }
+  },
+  "amenities": {
+    "title": "Amenities & Services",
+    "description": "Va Riverside Retreat provides comprehensive free amenities and high-quality services for a wonderful vacation",
+    "items": {
+      "wifi": { "name": "High-Speed WiFi", "description": "Free throughout the property" },
+      "kitchen": { "name": "Full Kitchen", "description": "Convenient self-catering" },
+      "ac": { "name": "Air Conditioning", "description": "In all rooms" },
+      "parking": { "name": "Parking", "description": "Spacious and secure" },
+      "bbq": { "name": "BBQ Area", "description": "Fun outdoor parties" },
+      "housekeeping": { "name": "Housekeeping", "description": "Daily free service" },
+      "reception": { "name": "24/7 Reception", "description": "Support anytime" },
+      "photo": { "name": "Photo Spots", "description": "Beautiful check-in corners" },
+      "breakfast": { "name": "Breakfast", "description": "Local specialties" },
+      "library": { "name": "Library", "description": "Quiet reading corner" },
+      "security": { "name": "Security", "description": "24/7 CCTV surveillance" },
+      "clean": { "name": "Cleanliness", "description": "5-star standards" }
+    }
+  },
+  "testimonials": {
+    "title": "What Our Guests Say",
+    "description": "Guest satisfaction is our motivation to continuously improve our services",
+    "stats": {
+      "rating": { "number": "9.8/10", "label": "Booking.com Rating" },
+      "rooms": { "number": "9 Rooms", "label": "Up to 32 guests" },
+      "distance": { "number": "50m", "label": "To Khai Dinh Tomb" },
+      "support": { "number": "24/7", "label": "Customer Support" }
+    },
+    "reviews": {
+      "review1": {
+        "name": "Minh Anh",
+        "location": "Hanoi",
+        "date": "December 2024",
+        "comment": "The Perfume River and Kim Phung mountain views are amazing! Beautiful pool, peaceful atmosphere. Close to Khai Dinh Tomb, very convenient for sightseeing. Friendly and helpful hosts."
+      },
+      "review2": {
+        "name": "Tuan Kiet",
+        "location": "Ho Chi Minh City",
+        "date": "November 2024",
+        "comment": "SUP experience on the Perfume River was fantastic! Clean rooms with full amenities. Location near the royal tombs is convenient for exploring Hue. Reasonable prices."
+      },
+      "review3": {
+        "name": "Thu Ha",
+        "location": "Da Nang",
+        "date": "October 2024",
+        "comment": "Wonderful homestay for those wanting to escape city noise. Beautiful views, fresh air. Nice design and comfortable. Highly recommended!"
+      }
+    }
+  },
+  "location": {
+    "title": "Convenient Location",
+    "description": "Our homestay is located in a prime position, close to nature while providing easy access to amenities and attractions in the area.",
+    "address": "Address",
+    "addressLine1": "Ben Than, Thuy Xuan Ward",
+    "addressLine2": "Hue City, Thua Thien Hue",
+    "nearbyPlaces": "Nearby Places",
+    "viewOnMap": "View on Google Maps",
+    "findUs": "Find Us Here",
+    "mapDescription": "Nestled in the heart of nature, easy to reach",
+    "places": {
+      "khaiDinh": { "name": "Khai Dinh Tomb", "distance": "50m" },
+      "tuDuc": { "name": "Tu Duc Tomb", "distance": "2.8 km" },
+      "truongTien": { "name": "Truong Tien Bridge", "distance": "7.6 km" },
+      "dongBa": { "name": "Dong Ba Market", "distance": "8.1 km" }
+    }
+  },
+  "bookingPlatforms": {
+    "title": "Book & Connect",
+    "description": "Book easily through trusted platforms or follow us on social media for the latest updates",
+    "directContact": "Direct Contact",
+    "directContactDesc": "Call now for the best booking consultation and support",
+    "platforms": {
+      "booking": { "description": "Online booking, flexible payment", "reviews": "13 reviews" },
+      "agoda": { "description": "Best price, exclusive deals", "reviews": "Guarantee" },
+      "facebook": { "description": "Follow for latest offers", "reviews": "Latest Updates" },
+      "instagram": { "description": "See beautiful photos & videos", "reviews": "Photos & Videos" },
+      "tiktok": { "description": "Short experience videos", "reviews": "Short Clips" }
+    }
+  },
+  "booking": {
+    "title": "Contact for Booking",
+    "description": "Contact us directly via phone, Zalo, or email for the best booking consultation and support",
+    "phone": "Phone / Zalo",
+    "email": "Email",
+    "workingHours": "Working Hours",
+    "workingHoursValue": "24/7 - Always ready to serve",
+    "addressTitle": "Address",
+    "addressValue": "Ben Than, Thuy Xuan\nHue City",
+    "pricePolicy": "Price & Policy Information",
+    "features": {
+      "price": "From 250,000 VND/night (Dorm)",
+      "checkInOut": "Check-in: 14:00 | Check-out: 12:00",
+      "freeWifi": "Free WiFi & Parking",
+      "freeSup": "Free SUP activities",
+      "pool": "Outdoor pool with river view",
+      "nearKhaiDinh": "Just 50m from Khai Dinh Tomb"
+    }
+  },
+  "footer": {
+    "brandDescription": "Nestled by the poetic Perfume River with Kim Phung mountain views, delivering memorable vacation experiences in Hue.",
+    "quickLinks": "Quick Links",
+    "contactInfo": "Contact Information",
+    "newsletter": "Get Offers",
+    "newsletterDesc": "Subscribe for the latest offers and news",
+    "emailPlaceholder": "Your email",
+    "subscribe": "Subscribe",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "cancellation": "Cancellation Policy",
+    "allRights": "All rights reserved.",
+    "links": {
+      "home": "Home",
+      "about": "About us",
+      "rooms": "Rooms",
+      "booking": "Booking",
+      "contact": "Contact"
+    },
+    "contactLabels": {
+      "phone": "Phone / Zalo",
+      "email": "Email",
+      "address": "Address"
+    }
+  },
+  "languageSwitcher": {
+    "label": "Language"
+  }
+}

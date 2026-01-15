@@ -1,8 +1,10 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import { useScrollAnimation, useStaggerAnimation } from '@/hooks/useScrollAnimation';
 
 export default function Testimonials() {
+  const t = useTranslations('testimonials');
   const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation();
   const { ref: cardsRef, isVisible: cardsVisible, getStaggerDelay } = useStaggerAnimation(3, { staggerDelay: 150 });
   const { ref: statsRef, isVisible: statsVisible } = useScrollAnimation();
@@ -10,30 +12,21 @@ export default function Testimonials() {
   const testimonials = [
     {
       id: 1,
-      name: 'Minh Anh',
-      location: 'Hà Nội',
+      key: 'review1',
       rating: 5,
       avatar: 'https://ui-avatars.com/api/?name=Minh+Anh&background=8b6f47&color=fff&size=80',
-      comment: 'View sông Hương và núi Kim Phụng thật tuyệt! Hồ bơi rất đẹp, không gian yên tĩnh. Gần lăng Khải Định nên rất tiện để tham quan. Chủ nhà thân thiện, nhiệt tình.',
-      date: 'Tháng 12, 2024'
     },
     {
       id: 2,
-      name: 'Tuấn Kiệt',
-      location: 'TP. Hồ Chí Minh',
+      key: 'review2',
       rating: 5,
       avatar: 'https://ui-avatars.com/api/?name=Tuan+Kiet&background=8b6f47&color=fff&size=80',
-      comment: 'Trải nghiệm SUP trên sông Hương rất thú vị! Phòng sạch sẽ, đầy đủ tiện nghi. Vị trí gần các lăng tẩm nên thuận tiện cho việc tham quan Huế. Giá cả hợp lý.',
-      date: 'Tháng 11, 2024'
     },
     {
       id: 3,
-      name: 'Thu Hà',
-      location: 'Đà Nẵng',
+      key: 'review3',
       rating: 5,
       avatar: 'https://ui-avatars.com/api/?name=Thu+Ha&background=8b6f47&color=fff&size=80',
-      comment: 'Homestay tuyệt vời cho những ai muốn trốn khỏi sự ồn ào của thành phố. View đẹp, không khí trong lành. Thiết kế đẹp và thoải mái. Highly recommended!',
-      date: 'Tháng 10, 2024'
     }
   ];
 
@@ -47,10 +40,10 @@ export default function Testimonials() {
   );
 
   const stats = [
-    { number: '9.8/10', label: 'Đánh Giá Booking.com' },
-    { number: '9 Phòng', label: 'Tối đa 32 khách' },
-    { number: '50m', label: 'Đến Lăng Khải Định' },
-    { number: '24/7', label: 'Hỗ Trợ Khách Hàng' }
+    { key: 'rating' },
+    { key: 'rooms' },
+    { key: 'distance' },
+    { key: 'support' }
   ];
 
   return (
@@ -62,10 +55,10 @@ export default function Testimonials() {
           className={`text-center max-w-3xl mx-auto mb-12 md:mb-16 fade-in-up ${headerVisible ? 'visible' : ''}`}
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4 md:mb-6">
-            Khách Hàng Nói Gì Về Chúng Tôi
+            {t('title')}
           </h2>
           <p className="text-base md:text-lg lg:text-xl text-foreground/70 px-2">
-            Niềm vui của khách hàng là động lực để chúng tôi không ngừng cải thiện dịch vụ
+            {t('description')}
           </p>
         </div>
 
@@ -97,23 +90,23 @@ export default function Testimonials() {
 
               {/* Comment */}
               <p className="text-sm md:text-base text-foreground/80 leading-relaxed mb-6 italic">
-                "{testimonial.comment}"
+                &ldquo;{t(`reviews.${testimonial.key}.comment`)}&rdquo;
               </p>
 
               {/* Author Info */}
               <div className="flex items-center gap-3 md:gap-4 pt-4 border-t border-neutral">
                 <img
                   src={testimonial.avatar}
-                  alt={testimonial.name}
+                  alt={t(`reviews.${testimonial.key}.name`)}
                   className="w-10 h-10 md:w-12 md:h-12 rounded-full shadow-sm"
                   loading="lazy"
                 />
                 <div>
                   <h4 className="font-semibold text-foreground text-sm md:text-base">
-                    {testimonial.name}
+                    {t(`reviews.${testimonial.key}.name`)}
                   </h4>
                   <p className="text-xs md:text-sm text-foreground/60">
-                    {testimonial.location} • {testimonial.date}
+                    {t(`reviews.${testimonial.key}.location`)} &bull; {t(`reviews.${testimonial.key}.date`)}
                   </p>
                 </div>
               </div>
@@ -133,10 +126,10 @@ export default function Testimonials() {
                        hover:bg-white hover:shadow-lg transition-all duration-300"
             >
               <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-primary mb-2">
-                {stat.number}
+                {t(`stats.${stat.key}.number`)}
               </div>
               <div className="text-sm md:text-base text-foreground/70">
-                {stat.label}
+                {t(`stats.${stat.key}.label`)}
               </div>
             </div>
           ))}

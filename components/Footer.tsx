@@ -1,9 +1,11 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useTranslations } from 'next-intl';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 export default function Footer() {
+  const t = useTranslations('footer');
   const currentYear = new Date().getFullYear();
   const [showBackToTop, setShowBackToTop] = useState(false);
   const { ref: footerRef, isVisible: footerVisible } = useScrollAnimation({ threshold: 0.1 });
@@ -22,17 +24,17 @@ export default function Footer() {
   };
 
   const quickLinks = [
-    { name: 'Trang chủ', href: '#hero' },
-    { name: 'Về chúng tôi', href: '#about' },
-    { name: 'Phòng', href: '#rooms' },
-    { name: 'Đặt phòng', href: '#booking-platforms' },
-    { name: 'Liên hệ', href: '#booking' }
+    { key: 'home', href: '#hero' },
+    { key: 'about', href: '#about' },
+    { key: 'rooms', href: '#rooms' },
+    { key: 'booking', href: '#booking-platforms' },
+    { key: 'contact', href: '#booking' }
   ];
 
   const contactInfo = [
-    { label: 'Điện thoại / Zalo', value: '079 494 5654 / 093 859 8718' },
-    { label: 'Email', value: 'varetreat@gmail.com' },
-    { label: 'Địa chỉ', value: 'Bến Than, Thủy Xuân, Huế' }
+    { key: 'phone', value: '079 494 5654 / 093 859 8718' },
+    { key: 'email', value: 'varetreat@gmail.com' },
+    { key: 'address', value: 'Bến Than, Thủy Xuân, Huế' }
   ];
 
   const socialLinks = [
@@ -99,8 +101,7 @@ export default function Footer() {
                 </h3>
               </div>
               <p className="text-white/70 mb-4 md:mb-6 leading-relaxed text-sm md:text-base">
-                Nằm bên sông Hương thơ mộng với view núi Kim Phụng,
-                mang đến trải nghiệm nghỉ dưỡng đáng nhớ tại Huế.
+                {t('brandDescription')}
               </p>
               {/* Social Links */}
               <div className="flex gap-3">
@@ -123,7 +124,7 @@ export default function Footer() {
             {/* Quick Links */}
             <div>
               <h4 className="text-base md:text-lg font-semibold mb-3 md:mb-4 text-accent">
-                Liên Kết Nhanh
+                {t('quickLinks')}
               </h4>
               <ul className="space-y-2 md:space-y-3">
                 {quickLinks.map((link, index) => (
@@ -136,7 +137,7 @@ export default function Footer() {
                       <svg className="w-3 h-3 md:w-4 md:h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                       </svg>
-                      {link.name}
+                      {t(`links.${link.key}`)}
                     </a>
                   </li>
                 ))}
@@ -146,12 +147,12 @@ export default function Footer() {
             {/* Contact Info */}
             <div>
               <h4 className="text-base md:text-lg font-semibold mb-3 md:mb-4 text-accent">
-                Thông Tin Liên Hệ
+                {t('contactInfo')}
               </h4>
               <ul className="space-y-2 md:space-y-3">
                 {contactInfo.map((info, index) => (
                   <li key={index} className="text-white/70 text-sm md:text-base">
-                    <span className="font-medium text-white">{info.label}:</span>
+                    <span className="font-medium text-white">{t(`contactLabels.${info.key}`)}:</span>
                     <br />
                     <span className="text-xs md:text-sm">{info.value}</span>
                   </li>
@@ -162,15 +163,15 @@ export default function Footer() {
             {/* Newsletter */}
             <div>
               <h4 className="text-base md:text-lg font-semibold mb-3 md:mb-4 text-accent">
-                Nhận Ưu Đãi
+                {t('newsletter')}
               </h4>
               <p className="text-white/70 mb-3 md:mb-4 text-sm md:text-base">
-                Đăng ký để nhận các ưu đãi và tin tức mới nhất
+                {t('newsletterDesc')}
               </p>
               <form className="space-y-3" onSubmit={(e) => e.preventDefault()}>
                 <input
                   type="email"
-                  placeholder="Email của bạn"
+                  placeholder={t('emailPlaceholder')}
                   className="w-full px-4 py-2.5 md:py-3 rounded-lg bg-white/10 border border-white/20 text-white
                            placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-primary
                            text-sm md:text-base transition-all duration-300"
@@ -181,7 +182,7 @@ export default function Footer() {
                            rounded-lg transition-all duration-300 btn-hover active:scale-95 touch-manipulation
                            text-sm md:text-base"
                 >
-                  Đăng Ký
+                  {t('subscribe')}
                 </button>
               </form>
             </div>
@@ -191,17 +192,17 @@ export default function Footer() {
           <div className="border-t border-white/10 pt-6 md:pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
               <p className="text-white/60 text-xs md:text-sm text-center md:text-left">
-                © {currentYear} Vả Riverside Retreat. All rights reserved.
+                &copy; {currentYear} Vả Riverside Retreat. {t('allRights')}
               </p>
               <div className="flex flex-wrap justify-center gap-4 md:gap-6 text-xs md:text-sm">
                 <a href="#" className="text-white/60 hover:text-white transition-colors">
-                  Chính sách bảo mật
+                  {t('privacy')}
                 </a>
                 <a href="#" className="text-white/60 hover:text-white transition-colors">
-                  Điều khoản dịch vụ
+                  {t('terms')}
                 </a>
                 <a href="#" className="text-white/60 hover:text-white transition-colors">
-                  Chính sách hủy phòng
+                  {t('cancellation')}
                 </a>
               </div>
             </div>

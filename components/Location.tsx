@@ -1,16 +1,17 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import { useScrollAnimation, useStaggerAnimation } from '@/hooks/useScrollAnimation';
 
 export default function Location() {
+  const t = useTranslations('location');
   const { ref: contentRef, isVisible: contentVisible } = useScrollAnimation();
   const { ref: placesRef, isVisible: placesVisible, getStaggerDelay } = useStaggerAnimation(4, { staggerDelay: 100 });
   const { ref: mapRef, isVisible: mapVisible } = useScrollAnimation();
 
   const nearbyPlaces = [
     {
-      name: 'Lăng Khải Định',
-      distance: '50m',
+      key: 'khaiDinh',
       icon: (
         <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
@@ -18,8 +19,7 @@ export default function Location() {
       )
     },
     {
-      name: 'Lăng Tự Đức',
-      distance: '2.8 km',
+      key: 'tuDuc',
       icon: (
         <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
@@ -28,8 +28,7 @@ export default function Location() {
       )
     },
     {
-      name: 'Cầu Trường Tiền',
-      distance: '7.6 km',
+      key: 'truongTien',
       icon: (
         <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
@@ -37,8 +36,7 @@ export default function Location() {
       )
     },
     {
-      name: 'Chợ Đông Ba',
-      distance: '8.1 km',
+      key: 'dongBa',
       icon: (
         <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
@@ -57,12 +55,10 @@ export default function Location() {
             className={`fade-in-left ${contentVisible ? 'visible' : ''}`}
           >
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4 md:mb-6">
-              Vị Trí Thuận Tiện
+              {t('title')}
             </h2>
             <p className="text-base md:text-lg text-foreground/70 mb-6 md:mb-8 leading-relaxed">
-              Homestay của chúng tôi tọa lạc tại vị trí đắc địa, vừa gần gũi với
-              thiên nhiên, vừa dễ dàng tiếp cận các tiện ích và điểm tham quan
-              trong khu vực.
+              {t('description')}
             </p>
 
             {/* Address */}
@@ -75,10 +71,10 @@ export default function Location() {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="font-semibold text-foreground mb-1 text-sm md:text-base">Địa chỉ</h3>
+                  <h3 className="font-semibold text-foreground mb-1 text-sm md:text-base">{t('address')}</h3>
                   <p className="text-foreground/70 text-sm md:text-base">
-                    Bến Than, phường Thủy Xuân<br />
-                    Thành phố Huế, Thừa Thiên Huế
+                    {t('addressLine1')}<br />
+                    {t('addressLine2')}
                   </p>
                 </div>
               </div>
@@ -87,7 +83,7 @@ export default function Location() {
             {/* Nearby Places */}
             <div className="mb-6 md:mb-8">
               <h3 className="font-semibold text-foreground text-base md:text-lg mb-4">
-                Địa điểm lân cận
+                {t('nearbyPlaces')}
               </h3>
               <div
                 ref={placesRef}
@@ -95,7 +91,7 @@ export default function Location() {
               >
                 {nearbyPlaces.map((place, index) => (
                   <div
-                    key={index}
+                    key={place.key}
                     className={`stagger-item flex items-center gap-2 md:gap-3 bg-white rounded-lg p-3 md:p-4
                       shadow-sm card-hover cursor-pointer ${placesVisible ? 'visible' : ''}`}
                     style={getStaggerDelay(index)}
@@ -105,10 +101,10 @@ export default function Location() {
                     </div>
                     <div>
                       <p className="font-medium text-foreground text-xs md:text-sm">
-                        {place.name}
+                        {t(`places.${place.key}.name`)}
                       </p>
                       <p className="text-xs text-foreground/60">
-                        {place.distance}
+                        {t(`places.${place.key}.distance`)}
                       </p>
                     </div>
                   </div>
@@ -128,7 +124,7 @@ export default function Location() {
               <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
               </svg>
-              Xem Trên Google Maps
+              {t('viewOnMap')}
             </a>
           </div>
 
@@ -160,10 +156,10 @@ export default function Location() {
                   </svg>
                 </div>
                 <h3 className="text-lg md:text-xl font-semibold text-foreground mb-2">
-                  Tìm Chúng Tôi Tại Đây
+                  {t('findUs')}
                 </h3>
                 <p className="text-foreground/70 mb-3 md:mb-4 text-sm md:text-base">
-                  Nestled in the heart of nature, easy to reach
+                  {t('mapDescription')}
                 </p>
                 <div className="text-xs md:text-sm text-foreground/60">
                   Lat: 16.419452° N, Long: 107.5623067° E

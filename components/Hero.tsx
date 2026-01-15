@@ -2,8 +2,11 @@
 
 import React from "react";
 import Image from "next/image";
+import { useTranslations } from 'next-intl';
 
 export default function Hero() {
+  const t = useTranslations('hero');
+
   return (
     <section id="hero" className="relative h-screen w-full overflow-hidden">
       {/* Background Image with Animated Overlay */}
@@ -40,16 +43,15 @@ export default function Hero() {
         <div className="max-w-4xl mx-auto text-center space-y-6">
           {/* Main Heading with staggered animation */}
           <h1 className="hero-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight">
-            Vả Riverside Retreat
+            {t('title')}
             <span className="block mt-2 md:mt-3 text-accent drop-shadow-lg">
-              Bên Dòng Sông Hương Thơ Mộng
+              {t('subtitle')}
             </span>
           </h1>
 
           {/* Subtitle with animation delay */}
           <p className="hero-subtitle text-base sm:text-lg md:text-xl lg:text-2xl text-gray-200 max-w-2xl mx-auto leading-relaxed px-4">
-            View núi Kim Phụng tuyệt đẹp, hồ bơi ngoài trời, và trải nghiệm SUP
-            trên sông Hương
+            {t('description')}
           </p>
 
           {/* CTA Button with enhanced effects */}
@@ -61,7 +63,7 @@ export default function Hero() {
                        shadow-2xl btn-hover pulse-glow
                        active:scale-95 touch-manipulation"
             >
-              Đặt Phòng Ngay
+              {t('cta')}
             </a>
           </div>
 
@@ -71,14 +73,14 @@ export default function Hero() {
               <svg className="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
               </svg>
-              <span>9.8/10 Booking</span>
+              <span>{t('badge1')}</span>
             </div>
             <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-3 py-2 rounded-full">
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
               </svg>
-              <span>50m Lăng Khải Định</span>
+              <span>{t('badge2')}</span>
             </div>
           </div>
         </div>
@@ -86,7 +88,7 @@ export default function Hero() {
         {/* Scroll Indicator - smooth animation */}
         <div className="absolute bottom-8 md:bottom-12 left-1/2 hero-scroll">
           <div className="flex flex-col items-center gap-2 text-white/80">
-            <span className="text-xs sm:text-sm font-light tracking-wider">Khám phá thêm</span>
+            <span className="text-xs sm:text-sm font-light tracking-wider">{t('scroll')}</span>
             <div className="w-6 h-10 border-2 border-white/40 rounded-full flex justify-center p-1">
               <div className="w-1.5 h-3 bg-white/80 rounded-full animate-pulse" />
             </div>
